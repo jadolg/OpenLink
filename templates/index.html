@@ -1,4 +1,5 @@
 {% load staticfiles %}
+{% load humanize_date %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -49,7 +50,7 @@
             </header>
             <div class="w3-row">
                 <div class="w3-container w3-col w3-leftbar{% if site.active %} w3-border-green {% else %} w3-border-red {% endif %}">
-                    <p>{{ site.description }}</p>
+                    <p>{{ site.description }} <span class="w3-right">{{ site.last_check|humanize }}</span></p>
                     <hr>
                     <p><a target="_blank" href="/open/{{ site.id }}"><i class="fa fa-external-link"></i> {{ site.url }}
                     </a>

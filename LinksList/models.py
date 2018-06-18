@@ -1,6 +1,7 @@
 import requests
 from django.db import models
-from django.db.models import TextField, ForeignKey, CASCADE, BooleanField, URLField, IntegerField, CharField
+from django.db.models import TextField, ForeignKey, CASCADE, BooleanField, URLField, IntegerField, CharField, \
+    DateTimeField
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 
@@ -19,6 +20,7 @@ class Site(models.Model):
     section = ForeignKey(Section, on_delete=CASCADE)
     active = BooleanField(default=False)
     hits = IntegerField(default=0)
+    last_check = DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.name
