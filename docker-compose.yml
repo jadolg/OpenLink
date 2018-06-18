@@ -1,0 +1,10 @@
+version: "3"
+
+services:
+  openlink:
+    build: .
+    image: openlink
+    ports:
+      - 8001:8000
+    volumes:
+      - ./db.sqlite3:/home/db.sqlite3
