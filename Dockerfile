@@ -1,8 +1,8 @@
-FROM python:3.6-alpine3.7
+FROM python:3.6.0-alpine
 
 ADD . /home/
 WORKDIR /home/
-RUN pip3 install -r requirements.txt --no-index --find-links="/home/libs/"
+RUN pip3 install -r requirements.txt
 
 EXPOSE 8000
 
