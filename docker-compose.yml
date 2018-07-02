@@ -3,7 +3,7 @@ version: "3"
 services:
   openlink:
     build: .
-    image: openlink
+    image: guamulo/openlink
     ports:
       - 8001:8000
     volumes:
