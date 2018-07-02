@@ -35,11 +35,10 @@
     {% endif %}
 </ul>
 
-{% for site in sites %}
-    <div class="w3-row w3-animate-zoom" style="margin: 10px">
-        <div class="w3-col m3 w3-hide-small"><p></p></div>
-        <div class="w3-col w3-card-2 m6 s12">
-            <header class="w3-container  w3-light-grey">
+<div class="w3-row l12 m12 s12" class="grid" data-masonry='{ "itemSelector": ".grid-item", "columnWidth": 1 }'>
+    {% for site in sites %}
+        <div class="w3-col w3-card-2 l4 m3 s12 w3-animate-zoom grid-item" style="padding: 5px">
+            <header class="w3-container w3-light-grey">
                 <div class="w3-row">
                     <a target="_blank" href="/open/{{ site.id }}">
                         <h3 class="w3-col l11 m10 s10">{{ site.name }}</h3>
@@ -60,9 +59,23 @@
                 </div>
             </div>
         </div>
-        <div class="w3-col m3 w3-hide-small"><p></p></div>
-    </div>
-{% endfor %}
+    {% endfor %}
+</div>
 </body>
+<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+<script>
+    // vanilla JS
+    // init with element
+    var grid = document.querySelector('.grid');
+    var msnry = new Masonry(grid, {
+        // options...
+        itemSelector: '.grid-item',
+        columnWidth: 200
+    });
 
+    // init with selector
+    var msnry = new Masonry('.grid', {
+        // options...
+    });
+</script>
 </html>
