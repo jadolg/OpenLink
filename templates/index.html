@@ -51,7 +51,7 @@
                 <div class="w3-container w3-col w3-leftbar{% if site.active %} w3-border-green {% else %} w3-border-red {% endif %}">
                     <p>{{ site.description }} <span class="w3-right">{{ site.last_check|humanize }}</span></p>
                     <hr>
-                    <p><a target="_blank" href="/open/{{ site.id }}"><i class="fa fa-external-link"></i> {{ site.url }}
+                    <p><a target="_blank" href="/open/{{ site.id }}"><i class="fa fa-external-link"></i> {{ site.url|truncatechars:"40" }}
                     </a>
                         <i class="fa {% if site.active %} fa-link {% else %} fa-unlink {% endif %} w3-right w3-large"
                            style="color: {% if site.active %} green {% else %} red {% endif %}"></i>
